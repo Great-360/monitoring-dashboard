@@ -1,23 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Monitoring</title>
-    <link rel="stylesheet" href="styles.css">
-    <link
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects Monitoring</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-    <header>
-        <nav>
-            <img src="logo.png" alt="Project Monitoring Logo" class="logo">
-            <ul class="nav-links">
-                <li><a href="#monitoring">Monitoring</a></li>
-                <li><a href="#reports">Reports</a></li>
-                
-        </nav>
-    </header>
-    
+<div class="dash-shell">
+
+  <!-- ── TOPBAR ── -->
+  <nav class="topbar">
+    <div class="logo-sq">
+      <svg viewBox="0 0 16 16"><path d="M3 8h10M8 3v10" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="nav-tabs">
+      <button class="nav-tab active">
+        <svg viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
+        Monitoring
+      </button>
+      <button class="nav-tab">
+        <svg viewBox="0 0 16 16"><polyline points="2,12 6,7 10,9 14,4"/></svg>
+        Reporting
+      </button>
+      <button class="nav-tab">
+        <svg viewBox="0 0 16 16"><path d="M14 10a2 2 0 01-2 2H5l-3 3V4a2 2 0 012-2h8a2 2 0 012 2z"/></svg>
+        Help &amp; Resources
+      </button>
+    </div>
+
+    <div class="search-pill">
+      <svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4"/><line x1="10.5" y1="10.5" x2="14" y2="14"/></svg>
+      Search by category
+    </div>
+
+    <div class="user-block">
+      <div class="user-text">
+        <div class="uname">Bogdan Nikitin</div>
+        <div class="uhandle">@Nixtio</div>
+      </div>
+      <div class="uavatar">
+        BN
+        <div class="uavatar-dot"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HEADER ── -->
+  <div class="page-header">
+    <h1 class="page-title">Projects Monitoring</h1>
+    <div class="filter-pills">
+      <div class="fpill active">All <span class="fc">10,540</span></div>
+      <div class="fpill">TV <span class="fc">9,641</span></div>
+      <div class="fpill">Outdoor <span class="fc">4,870</span></div>
+      <div class="fpill">Web <span class="fc">6,385</span></div>
+      <div class="fpill">PA <span class="fc">2,377</span></div>
+      <div class="fpill">AC <span class="fc">1,102</span></div>
+      <div class="icon-btns">
+        <div class="icon-btn">
+          <svg viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
+        </div>
+        <div class="icon-btn">
+          <svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="2" rx="1"/><rect x="2" y="7" width="12" height="2" rx="1"/><rect x="2" y="11" width="12" height="2" rx="1"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TOP 4 STAT CARDS ── -->
+  <div class="cards-row">
+
+    <!-- Total Views -->
+    <div class="card">
+      <div class="ctop">
+        <span class="clabel">Total Views</span>
+        <span class="cmenu">···</span>
+      </div>
+      <div class="cval">$557,354<span class="cents">.02</span></div>
+      <div style="position:relative;height:68px;">
+        <canvas id="viewsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Weekly Clicks -->
+    <div class="card">
+      <div class="ctop">
+        <span class="clabel">Weekly Clicks</span>
+        <span class="cmenu">···</span>
+      </div>
+      <div class="cval">$60,598<span class="cents">.00</span></div>
+      <div class="heatmap" id="heatmap"></div>
+    </div>
+
+    <!-- Last Actions -->
+    <div class="card">
+      <div class="ctop">
+        <span class="clabel">Last actions</span>
+        <span class="cmenu">···</span>
+      </div>
+      <div class="acts">
+        <div class="arow">
+          <div class="adot" style="background:#3b5bdb;"></div>
+          <div class="atxt">Contract signed with new client</div>
+          <div class="atm">3h ago</div>
+        </div>
+        <div class="arow">
+          <div class="adot" style="background:#74c045;"></div>
+          <div class="atxt">Campaign "Fall Launch" scheduled</div>
+          <div class="atm">2 day ago</div>
+        </div>
+        <div class="arow">
+          <div class="adot" style="background:#3bc9db;"></div>
+          <div class="atxt">Analytics synced for mobile app</div>
+          <div class="atm">21 Oct 2024</div>
+        </div>
+        <div class="arow">
+          <div class="adot" style="background:#adb5bd;"></div>
+          <div class="atxt">User role changed to Admin for @JaneDoe</div>
+          <div class="atm">22 Oct 2024</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team -->
+    <div class="card">
+      <div class="ctop">
+        <span class="clabel">Team</span>
+        <span class="cmenu">···</span>
+      </div>
+      <div class="team-grid">
+        <div class="tmem"><div class="tav" style="background:#e64980;">LK</div><div class="tinit">LK</div></div>
+        <div class="tmem"><div class="tav" style="background:#3b5bdb;">GR</div><div class="tinit">GR</div></div>
+        <div class="tmem"><div class="tav" style="background:#555;">VS</div><div class="tinit">VS</div></div>
+        <div class="tmem"><div class="tav" style="background:#3bc9db;color:#111;">LC</div><div class="tinit">LC</div></div>
+        <div class="tmem"><div class="tav" style="background:#f59f00;">ET</div><div class="tinit">ET</div></div>
+        <div class="tmem"><div class="tav" style="background:#2f9e44;color:#fff;">MA</div><div class="tinit">MA</div></div>
+        <div class="tmem"><div class="tav" style="background:#c2255c;">YH</div><div class="tinit">YH</div></div>
+        <div class="tmem"><div class="tav" style="background:#1971c2;">BA</div><div class="tinit">BA</div></div>
+        <div class="tmem"><div class="tav" style="background:#e9ecef;color:#555;">+5</div><div class="tinit">more</div></div>
+      </div>
+    </div>
+
+  </div><!-- /cards-row -->
+
+  <!-- ── BOTTOM ROW ── -->
+  <div class="bottom-row">
+
+    <!-- Left: dark radar + AI chat -->
+    <div class="left-col">
+
+      <!-- Product Analytics dark card -->
+      <div class="dark-card">
+        <div class="ctop">
+          <span class="clabel">Product Analytics</span>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="dark-legend">
+              <span><span class="dlgdot" style="background:#3b5bdb;"></span>Income</span>
+              <span><span class="dlgdot" style="background:#e64980;"></span>Loss</span>
+            </div>
+            <span class="cmenu">···</span>
+          </div>
+        </div>
+        <div class="radar-wrap">
+          <canvas id="radarChart"></canvas>
+        </div>
+        <div class="income-note">▲ Income 0.54%</div>
+      </div>
+
+      <!-- AI Chat Panel -->
+      <div class="ai-panel">
+        <div class="ai-hdr">
+          <div class="ai-ico">✦</div>
+          <div>
+            <div class="ailabel">AI Assistant</div>
+            <div class="aisub">Powered by Claude</div>
+          </div>
+          <div class="aibadge">AI</div>
+        </div>
+        <div class="api-row">
+          <input class="api-inp" id="apiKey" type="password" placeholder="Paste Anthropic API key…"/>
+          <button class="api-sv" onclick="saveKey()">Save</button>
+        </div>
+        <div class="chat-msgs" id="chatMessages">
+          <div class="msg bot">
+            <div class="mav">✦</div>
+            <div class="mbub">Hi! Ask me about your dashboard data — metrics, trends, team performance.</div>
+          </div>
+        </div>
+        <div class="chat-inp-row">
+          <input class="chat-inp" id="chatInput" placeholder="Ask about your data…" onkeydown="if(event.key==='Enter')sendMsg()"/>
+          <button class="chat-send" id="sendBtn" onclick="sendMsg()">Send</button>
+        </div>
+      </div>
+
+    </div><!-- /left-col -->
+
+    <!-- Projects Timeline -->
+    <div class="tl-card">
+      <div class="tl-hdr">
+        <span class="tl-title">Projects Timeline</span>
+        <div class="date-pill">
+          <svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="13" rx="2"/><line x1="2" y1="6" x2="14" y2="6"/><line x1="5" y1="2" x2="5" y2="4"/><line x1="11" y1="2" x2="11" y2="4"/></svg>
+          Last Week 44–45 Oct
+          <svg viewBox="0 0 10 6" style="width:8px;height:5px;stroke:var(--muted);fill:none;stroke-width:1.8;"><polyline points="1,1 5,5 9,1"/></svg>
+        </div>
+        <span class="cmenu">···</span>
+      </div>
+
+      <div class="tl-legend">
+        <span><span class="ll" style="background:#3b5bdb;"></span>TV</span>
+        <span><span class="ll" style="background:#74c045;"></span>PA</span>
+        <span><span class="ll" style="background:#3bc9db;"></span>Radio</span>
+      </div>
+
+      <div class="tl-chart">
+        <canvas id="timelineChart"></canvas>
+      </div>
+
+      <div class="tl-sum">
+        <div class="tl-total">$28,374<span class="hl">.05</span></div>
+        <div class="tl-bd">
+          <span>● TV &nbsp;&nbsp;&nbsp;&nbsp;$12,023.50</span>
+          <span>● PA &nbsp;&nbsp;&nbsp;&nbsp;$10,347.50</span>
+          <span>● Radio $5,903.05</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /bottom-row -->
+
+</div><!-- /dash-shell -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
