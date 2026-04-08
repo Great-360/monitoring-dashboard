@@ -262,3 +262,34 @@ html, body {
 .tl-bd { display: flex; flex-direction: column; gap: 2px; font-size: 10px; color: var(--muted); }
 
 canvas { display: block; }
+
+/* ── RESPONSIVE TWEAKS ── */
+@media (max-width: 900px) {
+  .cards-row { grid-template-columns: repeat(2, 1fr); }
+  .heatmap { grid-template-columns: repeat(5, 1fr); }
+  .bottom-row { grid-template-columns: 1fr; }
+  .radar-wrap { height: 200px; }
+  .radar-wrap canvas { max-width: 100%; height: auto; align-self: center;}
+  #radar-chart { max-width: 300px; margin: 0 auto; }
+}
+
+@media (max-width: 600px) {
+
+  .body{
+    scroll-behavior: smooth;
+   }
+  
+  .cards-row { grid-template-columns: 1fr; }
+  .nav-tabs { display: none; }
+  .search-pill { width: 140px; }
+  .radar-wrap canvas { max-width: 100%;  align-self: center;}
+  .tl-card{
+    margin-bottom: 20px;
+    height: fit-content;
+    overflow-x: auto;
+  }
+  .tl-chart {
+    min-height: 150px;
+    overflow-x: auto;
+  }
+}
